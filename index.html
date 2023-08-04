@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;500;600&family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- my style -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="main">
+      <!-- nav bar start -->
+      <nav>
+        <div class="burger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        <ul class="modal-nav">
+          <li>
+            <a
+              href="
+                "
+              >Home</a
+            >
+          </li>
+          <li>
+            <a
+              href="
+                    "
+              >donghua</a
+            >
+          </li>
+
+          <li>
+            <a
+              href="
+                    "
+              >schedule</a
+            >
+          </li>
+          <li>
+            <a
+              href="
+                "
+              >bookmark</a
+            >
+          </li>
+        </ul>
+
+        <div class="logo">
+          <img src="img/1.png" alt="logo" />
+        </div>
+
+        <div class="search">
+          <input type="text" placeholder="Search..." class="query" />
+          <a href="" id="search">
+            <i data-feather="search" class="white"></i>
+          </a>
+        </div>
+        <div class="show-search">
+          <a href="">
+            <i
+              data-feather="search"
+              class="white"
+              style="stroke-width: 3px"
+            ></i>
+          </a>
+        </div>
+
+        <div class="star">
+          <i data-feather="star" class="white"></i>
+          <p>Surprese Me!</p>
+        </div>
+      </nav>
+      <!-- nav bar end -->
+
+      <!-- swiper start -->
+      <swiper-container
+        class="mySwiper"
+        pagination="true"
+        pagination-clickable="true"
+        navigation="true"
+        space-between="30"
+        loop="true"
+      >
+        <swiper-slide>
+          <div class="img">
+            <img src="img/1 (copy).png" alt="">
+
+          </div>
+          <div class="description">
+            <p>BLACK HOLE</p>
+          </div>
+        </swiper-slide>
+        <swiper-slide>
+          <div class="img">
+            <img src="img/2.jpeg" alt="">
+
+          </div>
+          <div class="description">
+            <p>BLACK HOLE</p>
+          </div>
+        </swiper-slide>
+        <swiper-slide>
+          <div class="img">
+            <img src="img/3.jpg" alt="">
+
+          </div>
+          <div class="description">
+            <p>BLACK HOLE</p>
+          </div>
+        </swiper-slide>
+        <swiper-slide>
+          <div class="img">
+            <img src="img/4.jpg" alt="">
+
+          </div>
+          <div class="description">
+            <p>BLACK HOLE</p>
+          </div>
+        </swiper-slide>
+        <swiper-slide>
+          <div class="img">
+            <img src="img/5.jpeg" alt="">
+
+          </div>
+          <div class="description">
+            <p>BLACK HOLE</p>
+          </div>
+        </swiper-slide>
+        <swiper-slide>
+          <div class="img">
+            <img src="img/6.jpeg" alt="">
+
+          </div>
+          <div class="description">
+            <p>BLACK HOLE</p>
+          </div>
+        </swiper-slide>
+       
+      </swiper-container>
+
+      <!-- section populer start -->
+      <section class="popular">
+        <div class="header">
+          <h1>FILM TERPOPULER</h1>
+        </div>
+        <div class="row">
+          <div class="card">
+            <div class="card-img">
+              <img src="img/3.jpg" alt="">
+              <div class="overlay">
+                <i data-feather="play-circle" class="play"></i>
+              </div>
+            </div>
+
+            <div class="title">BLACK HOLE hasssssssas</div>
+          </div>
+         <button onclick="conn()">GENERATE</button>
+        </div>
+      </section>
+      <!-- section populer end -->
+
+      <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-element-bundle.min.js"></script>
+
+      <!-- swiper end -->
+    </div>
+
+    <script>
+      feather.replace();
+    </script>
+
+    <!-- jquery -->
+    <script
+      src="https://code.jquery.com/jquery-3.7.0.slim.js"
+      integrity="sha256-7GO+jepT9gJe9LB4XFf8snVOjX3iYNb0FHYr5LI1N5c="
+      crossorigin="anonymous"
+    ></script>
+    <script src="script.js"></script>
+  </body>
+</html>
