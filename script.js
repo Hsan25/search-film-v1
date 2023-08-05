@@ -1,9 +1,6 @@
-// $('burger').on('click', function (){
-//     $('modal-nav').classList.toggle('active');
-// });
-// toggle modal-nav
 const btnX = document.querySelector(".burger");
 const modalNav = document.querySelector(".modal-nav");
+
 btnX.onclick = (e) => {
   e.preventDefault();
   modalNav.classList.toggle("active");
@@ -43,6 +40,7 @@ const conn = async () => {
     str += `
         <div class="card">
         <div class="card-img">
+          <a href="" class="detail" data-id=${item.id}></a>
           <img src="${imgURL + item.poster_path}" alt="">
           <div class="overlay">
             <i data-feather="play-circle" class="play"></i>
@@ -53,6 +51,7 @@ const conn = async () => {
       </div>`;
   });
   row.innerHTML = str;
+  re_render();
   return data;
 };
 
@@ -79,6 +78,7 @@ const search = async (q) => {
     str += `
         <div class="card">
         <div class="card-img">
+          <a href="" class="detail" data-id=${item.id}></a>
           <img src="${imgURL + item.poster_path}" alt="">
           <div class="overlay">
             <i data-feather="play-circle" class="play"></i>
@@ -91,5 +91,77 @@ const search = async (q) => {
   // document.querySelector(swiper-container).style.display = 'none';
   document.querySelector(".header").innerHTML = "Hasil pencarian...";
   row.innerHTML = str;
+  re_render();
   return data;
 };
+
+// info detail
+function re_render() {
+  let btnDetail = document.querySelectorAll(".detail");
+  btnDetail.forEach((item) => {
+    item.addEventListener("click", (e) => {
+      e.preventDefault();
+
+      const ids = item.getAttribute("data-id");
+      detailInfo(ids);
+      console.log(ids);
+      // detailInfo();
+    });
+  });
+}
+
+// target detail
+
+async function detailInfo(id) {
+  const sId = id.toString();
+  const s = await fetch(`${url}/movie/${sId}?api_key=${apiKey}`);
+  data = await s.json();
+  const box = document.querySelector(".box");
+  box.innerHTML = showModal(data);
+  box.classList.add("active");
+  console.log(data);
+  // close modal detail
+  const btnClose = document.querySelector(".close");
+  const modalDetail = document.querySelector(".box");
+  
+  btnClose.addEventListener("click", (e) => {
+    e.preventDefault();
+    modalDetail.classList.remove("active");
+  });
+}
+
+// show modalDetail
+
+function showModal(x) {
+  return ` 
+  <div class="modal">
+  <a class="close">
+  <span></span>
+  <span></span>
+  </a>
+  <div class="modal-header">
+    <div class="modal-img">
+      <img src="${imgURL + x.poster_path}" alt=""  />
+    </div>
+    <div class="rating">${x.vote_average}</div>
+  </div>
+
+  <div class="modal-content">
+    <div class="title">
+      <h1>${x.title}</h1>
+    </div>
+    <ul class="modal-info">
+      <li>
+        <p class="release">Release: ${x.release_date}</p>
+      </li>
+    </ul>
+    <div class="summary">
+      <h3>Sinopsis</h3>
+      <p class="text">
+       ${x.overview}
+      </p>
+    </div>
+  </div>
+</div>
+`;
+}
