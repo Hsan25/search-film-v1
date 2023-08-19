@@ -20,6 +20,9 @@ document.addEventListener("click", function (e) {
   if (!btnX.contains(e.target) && !modalNav.contains(e.target)) {
     modalNav.classList.remove("active");
   }
+  if (btnX.contains(e.target) && !showSearch.contains(e.target)) {
+    searchBox.classList.remove("active");
+  }
 });
 
 // api
@@ -55,8 +58,8 @@ const conn = async () => {
   return data;
 };
 
-// `${url}/search/movie?query=${q}&api_key=${apiKey}`
-// `${url}/search/movie?query=${q}&api_key=${apiKey}`
+// jika halaman di kunjungi jalankan function ini
+conn();
 
 // search film
 
@@ -143,7 +146,7 @@ function showModal(x) {
     <div class="modal-img">
       <img src="${imgURL + x.poster_path}" alt=""  />
     </div>
-    <div class="rating">${x.vote_average}</div>
+    <div class="rating">Rating: ${x.vote_average}</div>
   </div>
 
   <div class="modal-content">

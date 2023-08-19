@@ -126,6 +126,7 @@ nav .show-search {
   transform: scale(1.2);
   margin-left: auto;
   padding: 1rem;
+  display: none;
 }
 
 /* modal nav */
@@ -415,6 +416,9 @@ swiper-container {
     display: none;
   }
 
+  nav .show-search{
+    display: block;
+  }
   /* swiper */
 
   swiper-slide{
